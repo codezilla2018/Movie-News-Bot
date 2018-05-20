@@ -1,0 +1,15 @@
+{
+  "name": "xx",
+  "version": "1.0.0",
+  "description": "This project is to make a Twitter Bot that tweeting about Movie News.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node bot.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "K.K.D.A.K.Indrajith",
+  "license": "ISC",
+  "dependencies": {
+    "twit": "^2.2.9"
+  }
+}
