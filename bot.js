@@ -14,7 +14,6 @@ tweet();
 setInterval(tweet,1000*60*60*24);
 like();
 follow();
-mention();
 
 //bot will tweet every 24 hour about new movie news all around twitter with links
 function tweet(){
@@ -28,7 +27,7 @@ function tweet(){
                     status: '#Movienews '+data.statuses[i].text
                 }
                 //console.log('#Movienews '+data.statuses[i].text);
-                //T.post('statuses/update', tweet,tweeted);//This posts tweets mentioned in tweet param.
+                T.post('statuses/update', tweet,tweeted);//This posts tweets mentioned in tweet param.
                 }
         }
         //this is a call back function work after tweet has posted.
@@ -52,7 +51,7 @@ function follow(){
     //if someone follow bot bot will reply
     function retweet(eventMsg){
     var tweet={
-                    status: 'Thanks for following me '+'@'+eventMsg.source.name+' from '+eventMsg.source.location
+                    status: 'Thanks for following me '+'@'+eventMsg.source.screen_name+' from '+eventMsg.source.location
                 }
     T.post('statuses/update', tweet,tweeted);
         
@@ -77,7 +76,7 @@ function like(){
 
     function retweet(eventMsg){
     var tweet={
-                    status: 'Thanks for like my tweet '+'@'+eventMsg.source.name+' from '+eventMsg.source.location
+                    status: 'Thanks for like my tweet '+'@'+eventMsg.source.screen_name+' from '+eventMsg.source.location
                 }
     T.post('statuses/update', tweet,tweeted);
         
@@ -94,29 +93,3 @@ function like(){
 
 }
 
-//bot will reply when someone mention him
-function mention(){
-    //when stream is on bot will listen to events like follow.
-    var stream=T.stream('user');
-    stream.on('tweet',retweet);
-    
-    //if someone mention bot he will reply
-    function retweet(eventMsg){
-        //console.log(eventMsg);
-    var tweet={
-                    status: 'Happy to see you mentioning me '+'@'+eventMsg.source.name+' in your tweet'
-                }
-    T.post('statuses/update', tweet,tweeted);
-        
-    //this is a call back function work after tweet has posted.
-    function tweeted(err, data, response) {//this is a call back function work after tweet has posted.
-            if(err){
-                console.log(err);  
-            }
-            else{
-                console.log("Bot tweeted.");
-            }
-        }
-}
-
-}
