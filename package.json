@@ -10,6 +10,7 @@
   "author": "K.K.D.A.K.Indrajith",
   "license": "ISC",
   "dependencies": {
+    "fs": "0.0.1-security",
     "movie-list": "^4.0.0",
     "movie-trailer": "^2.0.3",
     "twit": "^2.2.9"
