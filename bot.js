@@ -28,7 +28,7 @@ function tweet(){
                     status: '#Movienews '+data.statuses[i].text
                 }
                 //console.log('#Movienews '+data.statuses[i].text);
-                T.post('statuses/update', tweet,tweeted);//This posts tweets mentioned in tweet param.
+                //T.post('statuses/update', tweet,tweeted);//This posts tweets mentioned in tweet param.
                 }
         }
         //this is a call back function work after tweet has posted.
@@ -102,8 +102,9 @@ function mention(){
     
     //if someone mention bot he will reply
     function retweet(eventMsg){
+        console.log(eventMsg);
     var tweet={
-                    status: 'Happy to see you mentioning me '+'@'+eventMsg.source.name+' from '+eventMsg.source.location+' in your tweet'
+                    status: 'Happy to see you mentioning me '+'@'+eventMsg.source.name+' in your tweet'
                 }
     T.post('statuses/update', tweet,tweeted);
         
