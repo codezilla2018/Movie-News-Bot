@@ -17,7 +17,7 @@ follow();
 
 //bot will tweet every 24 hour about new movie news all around twitter with links
 function tweet(){
-    var params=[{q: '@screenrant',count: 2},{q: '@CinemaBlend',count: 1},{q: '@IMDb',count: 1},{q: '@movieweb',count: 1},{q: '@comingsoonnet',count: 1},{q: '@darkhorizons',count: 1},{q: '@RottenTomatoes',count: 2}];
+    var params=[{q: '@screenrant',count: 2},{q: '@CinemaBlend',count: 1},{q: '@IMDb',count: 1},{q: '@movieweb',count: 1},{q: '@comingsoonnet',count: 1},{q: '@RottenTomatoes',count: 3}];
     for(j=0;j<params.length;j++){
         T.get('search/tweets', params[j], gotData);//get tweets about queries(q) in param
         function gotData(err, data, response){
