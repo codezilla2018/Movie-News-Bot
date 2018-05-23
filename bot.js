@@ -102,7 +102,7 @@ function mention(){
     
     //if someone mention bot he will reply
     function retweet(eventMsg){
-        console.log(eventMsg);
+        //console.log(eventMsg);
     var tweet={
                     status: 'Happy to see you mentioning me '+'@'+eventMsg.source.name+' in your tweet'
                 }
