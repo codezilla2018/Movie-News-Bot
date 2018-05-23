@@ -51,7 +51,7 @@ function follow(){
     //if someone follow bot bot will reply
     function retweet(eventMsg){
     var tweet={
-                    status: 'Thanks for following me '+'@'+eventMsg.source.screen_name+' from '+eventMsg.source.location
+                    status: 'Thanks for following me '+'@'+eventMsg.source.screen_name+'
                 }
     T.post('statuses/update', tweet,tweeted);
         
@@ -76,7 +76,7 @@ function like(){
 
     function retweet(eventMsg){
     var tweet={
-                    status: 'Thanks for like my tweet '+'@'+eventMsg.source.screen_name+' from '+eventMsg.source.location
+                    status: 'Thanks for like my tweet '+'@'+eventMsg.source.screen_name
                 }
     T.post('statuses/update', tweet,tweeted);
         
