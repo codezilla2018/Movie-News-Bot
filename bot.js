@@ -17,17 +17,19 @@ follow();
 
 //bot will tweet every 24 hour about new movie news all around twitter with links
 function tweet(){
-    var params=[{q: '@screenrant',count: 2},{q: '@CinemaBlend',count: 1},{q: '@IMDb',count: 1},{q: '@movieweb',count: 1},{q: '@comingsoonnet',count: 1},{q: '@RottenTomatoes',count: 3}];
+    var params=[{q: '@screenrant',count: 3},{q: '@CinemaBlend',count: 1},{q: '@IMDb',count: 1},{q: '@comingsoonnet',count: 1},{q: '@RottenTomatoes',count: 3}];
     for(j=0;j<params.length;j++){
         T.get('search/tweets', params[j], gotData);//get tweets about queries(q) in param
         function gotData(err, data, response){
+            console.log(data);
             for(i=0;i<data.statuses.length;i++){
                 
                 var tweet={
-                    status: '#Movienews '+data.statuses[i].text
+                    status: '#Movienews '+data.statuses[i].text+ ' \n\nSOURCE: '+data.statuses[i].source
                 }
-                //console.log('#Movienews '+data.statuses[i].text);
-                T.post('statuses/update', tweet,tweeted);//This posts tweets mentioned in tweet param.
+                //console.log('#Movienews '+data.statuses[i].text+ ' \n\nSOURCE: '+data.statuses[i].source);
+                //This posts tweets mentioned in tweet param.
+                T.post('statuses/update', tweet,tweeted);
                 }
         }
         //this is a call back function work after tweet has posted.
@@ -51,7 +53,7 @@ function follow(){
     //if someone follow bot bot will reply
     function retweet(eventMsg){
     var tweet={
-                    status: 'Thanks for following me '+'@'+eventMsg.source.screen_name+'
+                    status: 'Thanks for following me '+'@'+eventMsg.source.screen_name
                 }
     T.post('statuses/update', tweet,tweeted);
         
