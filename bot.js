@@ -25,9 +25,9 @@ function tweet(){
             for(i=0;i<data.statuses.length;i++){
                 
                 var tweet={
-                    status: '#Movienews '+data.statuses[i].text+ ' \n\nSOURCE: '+data.statuses[i].source
+                    status: '#MovieNews '+data.statuses[i].text+ ' \n\nSOURCE: twitter.com'
                 }
-                //console.log('#Movienews '+data.statuses[i].text+ ' \n\nSOURCE: '+data.statuses[i].source);
+                //console.log('#Movienews '+data.statuses[i].text+ ' \n\nSOURCE: twitter.com');
                 //This posts tweets mentioned in tweet param.
                 T.post('statuses/update', tweet,tweeted);
                 }
